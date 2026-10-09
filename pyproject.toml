@@ -132,10 +132,12 @@ max-complexity = 10
 # Standalone, dev-only helper scripts run outside the app venv (optional deps
 # like cairosvg) - not part of the typed app surface. The goose-gui-e2e harness
 # scripts import app modules but only ever run under the e2e stack, not the app.
+# examples/ are standalone projects with their own venv (sealgate, langchain).
 exclude = [
     "scripts/sync_agent_config.py",
     "landing-page/scripts/gen-og.py",
     ".agents/skills/goose-gui-e2e/scripts/",
+    "examples/",
 ]
 
 [tool.ty.rules]
@@ -149,7 +151,7 @@ python-version = "3.12"
 
 [tool.deptry]
 ignore = ["DEP002"]
-extend_exclude = ["scripts/sync_agent_config.py", "landing-page/scripts/gen-og.py", ".agents/skills/goose-gui-e2e/scripts/"]
+extend_exclude = ["scripts/sync_agent_config.py", "landing-page/scripts/gen-og.py", ".agents/skills/goose-gui-e2e/scripts/", "examples/"]
 package_module_name_map = { "PyJWT" = "jwt", "google-api-python-client" = "googleapiclient", "google-auth" = "google", "google-genai" = "google", "openfeature-sdk" = "openfeature", "pillow" = "PIL", "pyyaml" = "yaml", "python-dotenv" = "dotenv" }
 
 [tool.vulture]
